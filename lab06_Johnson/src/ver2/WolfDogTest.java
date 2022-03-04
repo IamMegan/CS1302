@@ -1,0 +1,57 @@
+package ver2;
+
+public class WolfDogTest {
+	
+	public static void main(String [] args) {
+		//testDogAndWolfDog();
+		//testPolymorphism();
+		//testCasting();
+		testArrayOfDogs();
+	}
+	
+	public static void testDogAndWolfDog() {
+		WolfDog wd = new WolfDog("Juno", 7);
+		String name = wd.getName();
+		int toughness = wd.getToughness();
+		System.out.println("WolfDog's name is: " + name + ", toughness=" + toughness);
+		
+		String msg = wd.bark();
+		System.out.println(msg);
+		
+		System.out.println(wd);
+	}
+	
+	public static void testPolymorphism() {
+		Dog d = new WolfDog("Juno", 7);
+		String bark = d.bark();
+		String name = d.getName();
+		System.out.println("WolfDog's name is : " + name + ", bark=" + bark);
+	}
+	
+	public static void testCasting() {
+		Dog d = new WolfDog("Juno", 7);
+		
+		if(d instanceof WolfDog) {
+			WolfDog wd = (WolfDog)d;
+			System.out.println(wd.getToughness());
+		}
+	}
+	
+	public static void testArrayOfDogs() {
+		Dog[] dogs = new Dog[5];
+		dogs[0] = new Dog("Chaps");
+		dogs[1] = new Dog("Ace");
+		dogs[2] = new WolfDog("Juno", 7);
+		dogs[3] = new Dog("Gigi");
+		dogs[4] = new WolfDog("Mocho", 4);
+		
+		for(Dog d : dogs) {
+			System.out.println(d);
+			if( d instanceof WolfDog) {
+				WolfDog wd = (WolfDog)d;
+				System.out.println(" toughness =" + wd.getToughness());
+			}
+		}
+	}
+
+}
