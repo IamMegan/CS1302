@@ -26,23 +26,24 @@ public class AirportManager {
 	}
 	
 	public List<Airport> getAirports(){
-		return List<Airport> airportsList = new ArrayList<Airport>(airports.values());
+		 List<Airport> airportsList = new ArrayList<Airport>(airports.values());
+		 return airportsList;
 	}
 	
 	public List<Airport> getAirportsByCity(String city){
 		List<Airport> cityList = new ArrayList<Airport>();
 		for(Airport a : airports.values()) {
-			if(a.getCity.equals(city)) {
+			if(a.getCity().equals(city)) {
 				cityList.add(a);
 			}
 		}
 		return cityList;
 	}
 	
-	public List<Airport> getAirportsByCityState(String city, String State){
+	public List<Airport> getAirportsByCityState(String city, String state){
 		List<Airport> cityStateList = new ArrayList<Airport>();
 		for(Airport a : airports.values()) {
-			if(a.getCity.equals(city) && a.getState.equals(state)) {
+			if(a.getCity().equals(city) && a.getState().equals(state)) {
 				cityStateList.add(a);
 			}
 		}
