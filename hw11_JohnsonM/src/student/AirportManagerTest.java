@@ -1,15 +1,22 @@
 package student;
 
+import java.io.*;
+import java.util.*;
+
 public class AirportManagerTest {
+	 
 	public static void main(String[] args) {
-		
+		//testGetAirport();
+		//testGetAirportsByCity();
+		testGetAirports();
 	}
 	
 	public static void testGetAirport() {
 		System.out.println("Test getAirport------");
-		//TODO
-		System.out.println("Expected: ");
-		System.out.println("Actual: ");
+		AirportManager manager = new AirportManager(AirportLoader.getAirportMap(new File("src/student/airports.txt")));
+		Airport a = manager.getAirport("HSV");
+		System.out.println("Expected: HSV-Huntsville, AL: 34.7, 86.8");
+		System.out.println("Actual: " + a + "\n");
 	}
 	
 	public static void testGetAirportClosestTo() {
@@ -21,16 +28,25 @@ public class AirportManagerTest {
 	
 	public static void testGetAirports() {
 		System.out.println("Test getAirports------");
-		//TODO
-		System.out.println("Expected: ");
+		AirportManager manager = new AirportManager(AirportLoader.getAirportMap(new File("src/student/airports.txt")));
+		List<Airport> allPorts = manager.getAirports();
+		System.out.println("Expected: All of the airports");
 		System.out.println("Actual: ");
+		for(Airport a : allPorts) {
+			System.out.println(a);
+		}
 	}
 	
 	public static void testGetAirportsByCity() {
 		System.out.println("Test getAirportsByCity------");
-		//TODO
-		System.out.println("Expected: ");
-		System.out.println("Actual: ");
+		AirportManager manager = new AirportManager(AirportLoader.getAirportMap(new File("src/student/airports.txt")));
+		List<Airport> cityPorts = manager.getAirportsByCity("SanDiego");
+		System.out.println("Expected:\nSDM-SanDiego, CA: 32.6, 117.0\nSEE-SanDiego, CA: 32.8, 117.0\nMYF-SanDiego, CA: 32.8, 117.1\nSAN-SanDiego, CA: 32.7, 117.2");
+		System.out.println("Actual: " );
+		for(Airport a : cityPorts) {
+			System.out.println(a);
+		}
+		System.out.println("");
 	}
 	
 	public static void testGetAirportsByCityState() {
